@@ -38,62 +38,68 @@ export default function Home() {
     <div className="space-y-16">
       
       {/* Hero Section */}
-      <section className="relative text-center max-w-4xl mx-auto space-y-8 pt-6 sm:pt-10">
-        <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold tracking-wide uppercase bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400 border border-indigo-500/15">
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>100% Client-Side & Private</span>
+      <section className="relative text-center max-w-4xl mx-auto pt-8 pb-4 space-y-8">
+        <div>
+          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/10 dark:text-indigo-400 border border-indigo-500/20 dark:border-indigo-400/20 shadow-[0_0_12px_rgba(99,102,241,0.05)] transition-all duration-300 hover:scale-105 select-none">
+            <Sparkles className="h-3.5 w-3.5 text-indigo-500 dark:text-indigo-400" />
+            <span>100% Client-Side & Private</span>
+          </div>
         </div>
         
-        <div className="space-y-4">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight select-none">
+        <div className="space-y-4 max-w-3xl mx-auto">
+          <h1 className="text-5xl sm:text-7xl font-black tracking-tight select-none bg-gradient-to-r from-slate-950 via-indigo-600 to-slate-950 dark:from-white dark:via-indigo-400 dark:to-white bg-clip-text text-transparent leading-none py-1">
             DevKitly
           </h1>
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto">
-            A premium, privacy-first suite of offline developer tools designed to run completely sandboxed inside your browser. No signup, no API keys, and zero tracking.
+            A premium, privacy-first suite of offline developer tools designed to run completely sandboxed inside your browser. <span className="text-foreground font-semibold">No signup. No API keys. Zero tracking.</span>
           </p>
         </div>
 
         {/* Value Proposition Points */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
-          <span className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-semibold text-foreground/80 pt-2 select-none">
+          <span className="flex items-center gap-1.5 bg-indigo-500/5 dark:bg-indigo-400/5 border border-indigo-500/10 dark:border-indigo-400/10 px-3 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Free Developer Tools
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 bg-indigo-500/5 dark:bg-indigo-400/5 border border-indigo-500/10 dark:border-indigo-400/10 px-3 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Privacy-First
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 bg-indigo-500/5 dark:bg-indigo-400/5 border border-indigo-500/10 dark:border-indigo-400/10 px-3 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Works Completely in Your Browser
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 bg-indigo-500/5 dark:bg-indigo-400/5 border border-indigo-500/10 dark:border-indigo-400/10 px-3 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             No API Keys / Sign Up
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 bg-indigo-500/5 dark:bg-indigo-400/5 border border-indigo-500/10 dark:border-indigo-400/10 px-3 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Fast & Secure
           </span>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-2">
-          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{toolsRegistry.length}+</div>
-            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Total Tools</div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6">
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs flex flex-col items-center justify-center text-center h-36 w-full">
+            <div className="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 leading-none">{toolsRegistry.length}+</div>
+            <div className="text-xs sm:text-sm font-semibold text-foreground/90 mt-2">Total Tools</div>
+            <div className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 max-w-[150px] mx-auto">100% free & open-source</div>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{Object.keys(CATEGORIES).length}</div>
-            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Categories</div>
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs flex flex-col items-center justify-center text-center h-36 w-full">
+            <div className="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 leading-none">{Object.keys(CATEGORIES).length}</div>
+            <div className="text-xs sm:text-sm font-semibold text-foreground/90 mt-2">Categories</div>
+            <div className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 max-w-[150px] mx-auto">Organized workflows</div>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100% Local</div>
-            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Offline Processing</div>
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs flex flex-col items-center justify-center text-center h-36 w-full">
+            <div className="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 leading-none">100%</div>
+            <div className="text-xs sm:text-sm font-semibold text-foreground/90 mt-2">Local Processing</div>
+            <div className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 max-w-[150px] mx-auto">Runs in browser memory</div>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Zero Data Sent</div>
-            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Privacy First</div>
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs flex flex-col items-center justify-center text-center h-36 w-full">
+            <div className="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 leading-none">Zero</div>
+            <div className="text-xs sm:text-sm font-semibold text-foreground/90 mt-2">Data Shared</div>
+            <div className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 max-w-[150px] mx-auto">No server logs or tracking</div>
           </div>
         </div>
       </section>
