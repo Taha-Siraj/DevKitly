@@ -38,20 +38,64 @@ export default function Home() {
     <div className="space-y-16">
       
       {/* Hero Section */}
-      <section className="relative text-center max-w-4xl mx-auto space-y-6 pt-6 sm:pt-10">
+      <section className="relative text-center max-w-4xl mx-auto space-y-8 pt-6 sm:pt-10">
         <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold tracking-wide uppercase bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400 border border-indigo-500/15">
           <Sparkles className="h-3.5 w-3.5" />
           <span>100% Client-Side & Private</span>
         </div>
         
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 dark:from-white dark:via-indigo-100 dark:to-white bg-clip-text text-transparent leading-tight select-none">
-          Local Developer Utilities
-        </h1>
-        
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium">
-          A comprehensive suite of essential development utilities designed to run completely sandboxed in your browser. 
-          No API keys, no external API calls, and absolute security for your source code and configurations.
-        </p>
+        <div className="space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight select-none">
+            DevKitly
+          </h1>
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto">
+            A premium, privacy-first suite of offline developer tools designed to run completely sandboxed inside your browser. No signup, no API keys, and zero tracking.
+          </p>
+        </div>
+
+        {/* Value Proposition Points */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            Free Developer Tools
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            Privacy-First
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            Works Completely in Your Browser
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            No API Keys / Sign Up
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            Fast & Secure
+          </span>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-2">
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{toolsRegistry.length}+</div>
+            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Total Tools</div>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{Object.keys(CATEGORIES).length}</div>
+            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Categories</div>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100% Local</div>
+            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Offline Processing</div>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4 shadow-xs">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Zero Data Sent</div>
+            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Privacy First</div>
+          </div>
+        </div>
       </section>
 
       {/* Features Grid */}
@@ -87,6 +131,53 @@ export default function Home() {
           </p>
         </div>
 
+      </section>
+
+      {/* Popular Tools Section */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-2 border-b border-border/60 pb-3">
+          <Sparkles className="h-4.5 w-4.5 text-indigo-500" />
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            Most Popular Tools
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { name: "JSON Formatter", slug: "json-formatter", icon: "Braces", desc: "Format and clean JSON code" },
+            { name: "JSON Validator", slug: "json-validator", icon: "FileCheck", desc: "Validate syntax in real time" },
+            { name: "HTML to JSX", slug: "html-to-jsx", icon: "Component", desc: "Convert HTML elements to JSX" },
+            { name: "SQL Formatter", slug: "sql-formatter", icon: "Database", desc: "Format database SQL queries" },
+            { name: "UUID Generator", slug: "uuid-generator", icon: "FileCheck2", desc: "Generate RFC v4 UUIDs" },
+            { name: "Password Generator", slug: "password-generator", icon: "KeyRound", desc: "Generate high-entropy keys" },
+            { name: "Base64 Encoder", slug: "base64-encoder", icon: "Binary", desc: "Encode text to Base64 format" },
+            { name: "JWT Decoder", slug: "jwt-decoder", icon: "Key", desc: "Decode JWT payloads locally" },
+          ].map((pop) => (
+            <Link
+              key={pop.slug}
+              href={`/${pop.slug}`}
+              className="group flex flex-col justify-between rounded-xl border border-border bg-card p-4 shadow-2xs hover:border-indigo-500/40 hover:shadow-xs transition-all duration-300"
+            >
+              <div className="space-y-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-500 dark:bg-indigo-500/15 dark:text-indigo-400 border border-indigo-500/10">
+                  <ToolIcon name={pop.icon} className="h-4 w-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold text-foreground group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {pop.name}
+                  </h3>
+                  <p className="text-[10px] text-muted-foreground line-clamp-1 mt-0.5 font-medium">
+                    {pop.desc}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-0.5 text-[10px] font-bold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:translate-x-1 transition-transform duration-200">
+                <span>Open</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Filter and Search Bar */}

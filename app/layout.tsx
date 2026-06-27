@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DevKitly — Free Offline Developer Tools",
     description: "DevKitly provides fast, free, privacy-first offline developer tools that work directly in your browser. No signup. No API. No tracking.",
+  },
+  verification: {
+    google: "", // PLACEHOLDER: Add Google Search Console verification token here
+    // other: {
+    //   "msvalidate.01": "", // PLACEHOLDER: Add Bing Webmaster Tools verification token here
+    // }
   }
 };
 
@@ -96,6 +102,43 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-indigo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg focus:outline-none">
+          Skip to main content
+        </a>
+        {/* 
+          PLACEHOLDER: Google Analytics 4 (GA4) Script
+          To enable tracking, uncomment the tags below and replace G-XXXXXXXXXX with your measurement ID.
+          
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
+          <script
+            id="ga4-init"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX');
+              `
+            }}
+          />
+        */}
+        {/* 
+          PLACEHOLDER: Microsoft Clarity Script
+          To enable Clarity tracking, uncomment the script below and replace CLARITY_PROJECT_ID with your Clarity token.
+          
+          <script
+            id="clarity-init"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+              `
+            }}
+          />
+        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

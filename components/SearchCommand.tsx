@@ -66,6 +66,42 @@ export default function SearchCommand({ isOpen, onClose }: SearchCommandProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, selectedIndex, filteredTools, onClose]);
 
+  // Focus trap effect
+  useEffect(() => {
+    const handleFocusTrap = (e: KeyboardEvent) => {
+      if (!isOpen || !containerRef.current) return;
+
+      if (e.key === "Tab") {
+        const focusableElements = containerRef.current.querySelectorAll(
+          'input, [role="button"], button, a, [tabindex="0"]'
+        );
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          // Shift + Tab
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          // Tab
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleFocusTrap);
+    }
+    return () => window.removeEventListener("keydown", handleFocusTrap);
+  }, [isOpen]);
+
   // Click outside to close
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -83,6 +119,40 @@ export default function SearchCommand({ isOpen, onClose }: SearchCommandProps) {
   const navigate = (slug: string) => {
     router.push(`/${slug}`);
     onClose();
+  };
+
+  // Helper to escape regex special characters
+  const escapeRegExp = (string: string) => {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  };
+
+  // Text highlighting renderer
+  const highlightText = (text: string, highlight: string, isSelected: boolean) => {
+    if (!highlight.trim()) {
+      return <span>{text}</span>;
+    }
+    const regex = new RegExp(`(${escapeRegExp(highlight)})`, "gi");
+    const parts = text.split(regex);
+    return (
+      <span>
+        {parts.map((part, i) =>
+          regex.test(part) ? (
+            <mark
+              key={i}
+              className={`px-0.5 rounded-xs font-bold ${
+                isSelected
+                  ? "bg-indigo-300 text-slate-900"
+                  : "bg-amber-200/80 dark:bg-amber-900/60 text-slate-950 dark:text-slate-100"
+              }`}
+            >
+              {part}
+            </mark>
+          ) : (
+            part
+          )
+        )}
+      </span>
+    );
   };
 
   return (
@@ -141,9 +211,18 @@ export default function SearchCommand({ isOpen, onClose }: SearchCommandProps) {
                     return (
                       <div
                         key={tool.slug}
+                        role="button"
+                        tabIndex={0}
+                        aria-selected={isSelected}
                         onClick={() => navigate(tool.slug)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            navigate(tool.slug);
+                          }
+                        }}
                         onMouseEnter={() => setSelectedIndex(idx)}
-                        className={`flex items-center justify-between rounded-lg px-3 py-2.5 cursor-pointer transition-colors ${
+                        className={`flex items-center justify-between rounded-lg px-3 py-2.5 cursor-pointer transition-colors outline-none focus:ring-1 focus:ring-indigo-500/50 ${
                           isSelected
                             ? "bg-primary text-primary-foreground"
                             : "hover:bg-secondary/80 text-foreground"
@@ -156,11 +235,13 @@ export default function SearchCommand({ isOpen, onClose }: SearchCommandProps) {
                             <Terminal className="h-4 w-4" />
                           </div>
                           <div className="truncate">
-                            <p className="text-sm font-medium">{tool.name}</p>
+                            <p className="text-sm font-medium">
+                              {highlightText(tool.name, query, isSelected)}
+                            </p>
                             <p className={`text-xs truncate ${
                               isSelected ? "text-white/70" : "text-muted-foreground"
                             }`}>
-                              {tool.description}
+                              {highlightText(tool.description, query, isSelected)}
                             </p>
                           </div>
                         </div>

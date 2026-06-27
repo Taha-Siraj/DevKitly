@@ -53,7 +53,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
         />
 
         {/* Main Content Pane */}
-        <main className="flex-1 min-w-0 lg:pl-64 flex flex-col">
+        <main id="main-content" className="flex-1 min-w-0 lg:pl-64 flex flex-col" tabIndex={-1}>
           <div className="flex-1 py-8 px-4 sm:px-6 lg:px-8 max-w-6xl w-full mx-auto">
             {children}
           </div>

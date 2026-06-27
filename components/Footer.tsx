@@ -24,6 +24,9 @@ export default function Footer() {
               DevKitly provides fast, free, privacy-first offline developer tools that work directly in your browser. 
               No signup. No API. No tracking.
             </p>
+            <div className="text-[11px] font-bold text-slate-800 dark:text-slate-200 border-l-2 border-indigo-500 pl-2 py-0.5">
+              Built for developers. Fast. Free. Privacy-first.
+            </div>
             <div className="flex items-center gap-1.5 text-[10px] bg-secondary/60 border border-border px-3 py-1.5 rounded-xl max-w-fit font-bold">
               <Shield className="h-3.5 w-3.5 text-emerald-500" />
               <span>100% Local Sandboxed Operations</span>
