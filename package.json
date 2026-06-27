@@ -1,0 +1,42 @@
+{
+  "name": "devkitly",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "cronstrue": "^3.21.0",
+    "crypto-js": "^4.2.0",
+    "framer-motion": "^12.42.0",
+    "js-yaml": "^5.1.0",
+    "jsbarcode": "^3.12.3",
+    "lucide-react": "^1.21.0",
+    "next": "16.2.9",
+    "qrcode": "^1.5.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sql-formatter": "^15.8.2",
+    "tailwind-merge": "^3.6.0",
+    "uuid": "^14.0.1",
+    "xml-formatter": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/crypto-js": "^4.2.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
