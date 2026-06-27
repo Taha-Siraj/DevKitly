@@ -155,7 +155,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Home",
+        "name": "DevKitly",
         "item": "https://devkitly.vercel.app",
       },
       {

@@ -41,7 +41,7 @@ export default function Navbar({ onOpenMobileMenu, onOpenSearch }: NavbarProps) 
               className="flex items-center gap-1.5 hover:text-indigo-600 transition-colors text-foreground/80"
             >
               <Home className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Home</span>
+              <span className="hidden sm:inline">DevKitly</span>
             </Link>
             
             {tool && (

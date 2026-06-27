@@ -83,7 +83,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Home",
+        "name": "DevKitly",
         "item": "https://devkitly.vercel.app",
       },
       {
