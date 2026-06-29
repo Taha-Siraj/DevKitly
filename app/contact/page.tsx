@@ -39,7 +39,7 @@ export default function ContactPage() {
             <h3 className="font-bold text-foreground text-xs sm:text-sm">Email Communication</h3>
             <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
               For security reports, business queries, or direct inquiries, email us at:<br />
-              <a href="mailto:tahasiraj610@gmail.com" className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">tahasiraj610@gmail.com</a>
+              <a href="mailto:pikachugaming899@gmail.com" className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">pikachugaming899@gmail.com</a>
             </p>
           </div>
 
@@ -49,8 +49,8 @@ export default function ContactPage() {
             </div>
             <h3 className="font-bold text-foreground text-xs sm:text-sm">Issue Tracking</h3>
             <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
-              If you found a bug in a formatter or have a new utility request, submit an issue at:<br />
-              <a href="https://github.com/Taha-Siraj" target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">github.com/Taha-Siraj</a>
+              If you found a bug in a formatter or have a new utility request, send us an email at:<br />
+              <a href="mailto:pikachugaming899@gmail.com" className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">pikachugaming899@gmail.com</a>
             </p>
           </div>
 

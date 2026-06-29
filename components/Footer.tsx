@@ -82,10 +82,7 @@ export default function Footer() {
             <h4 className="text-[10px] font-bold text-foreground uppercase tracking-widest">Connect</h4>
             <ul className="space-y-2 text-xs font-semibold">
               <li>
-                <a href="mailto:tahasiraj610@gmail.com" className="hover:text-indigo-600 transition-colors">tahasiraj610@gmail.com</a>
-              </li>
-              <li>
-                <a href="https://github.com/Taha-Siraj" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition-colors">GitHub Profile</a>
+                <a href="mailto:pikachugaming899@gmail.com" className="hover:text-indigo-600 transition-colors">pikachugaming899@gmail.com</a>
               </li>
             </ul>
           </div>

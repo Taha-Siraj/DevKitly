@@ -56,12 +56,10 @@ const organizationSchema = {
   "logo": "https://devkitly.vercel.app/icon.png",
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "tahasiraj610@gmail.com",
+    "email": "pikachugaming899@gmail.com",
     "contactType": "customer support"
   },
-  "sameAs": [
-    "https://github.com/Taha-Siraj"
-  ],
+  "sameAs": [],
   "founder": {
     "@type": "Person",
     "name": "Taha Siraj"
