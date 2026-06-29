@@ -155,6 +155,20 @@ export default function RootLayout({
             </LayoutShell>
           </ToastProvider>
         </ThemeProvider>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QPZ3HJGR2Y"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QPZ3HJGR2Y');
+          `}
+        </Script>
+        {/* Adsterra Social Bar */}
         <Script
           src="https://pl30128618.effectivecpmnetwork.com/bf/07/fe/bf07fe92e06b64ed5cd393db0ea9161e.js"
           strategy="lazyOnload"
