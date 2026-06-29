@@ -5,6 +5,7 @@ import Link from "next/link";
 import { toolsRegistry, CATEGORIES } from "../lib/registry";
 import { ToolIcon } from "../components/Sidebar";
 import { Search, X, ShieldCheck, Zap, Coins, ArrowRight, Sparkles } from "lucide-react";
+import AdsterraNativeBanner from "../components/AdsterraNativeBanner";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -103,6 +104,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Adsterra Native Banner Ad */}
+      <AdsterraNativeBanner />
 
       {/* Features Grid */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">

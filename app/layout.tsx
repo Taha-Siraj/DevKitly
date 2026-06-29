@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { ToastProvider } from "../components/ToastProvider";
 import LayoutShell from "../components/LayoutShell";
+import Script from "next/script";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -154,6 +155,10 @@ export default function RootLayout({
             </LayoutShell>
           </ToastProvider>
         </ThemeProvider>
+        <Script
+          src="https://pl30128618.effectivecpmnetwork.com/bf/07/fe/bf07fe92e06b64ed5cd393db0ea9161e.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

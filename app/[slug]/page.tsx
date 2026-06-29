@@ -8,6 +8,7 @@ import { ToolIcon } from "../../components/Sidebar";
 import FAQAccordion from "../../components/FAQAccordion";
 import ToolRenderer from "../../components/ToolRenderer";
 import { getSEODataForSlug } from "../../lib/seoContent";
+import AdsterraNativeBanner from "../../components/AdsterraNativeBanner";
 
 interface ToolPageProps {
   params: Promise<{ slug: string }>;
@@ -241,6 +242,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
         </section>
 
       </div>
+
+      {/* Adsterra Native Banner Ad */}
+      <AdsterraNativeBanner />
 
       {/* GEO (Generative Engine Optimization) Technical Content Section */}
       <hr className="border-border/60" />
